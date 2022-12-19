@@ -8,6 +8,20 @@
 	"item": [
 		{
 			"name": "Auth - Create Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.have.status(\"OK\")    \r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -34,6 +48,22 @@
 		},
 		{
 			"name": "Booking - GetBookingIds",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.have.status(\"OK\")    \r",
+							"})\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -61,6 +91,20 @@
 		},
 		{
 			"name": "Booking - GetBooking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.have.status(\"OK\")    \r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"protocolProfileBehavior": {
 				"disabledSystemHeaders": {
 					"accept": true
@@ -70,39 +114,97 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
 						"key": "Accept",
-						"value": "application/xml",
+						"value": "application/json",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{url}}/booking/1",
+					"raw": "{{url}}/booking/43",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"booking",
-						"1"
+						"43"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Booking - Create Booking raw json",
+			"name": "Booking - Create Booking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.have.status(\"OK\")    \r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"content-type": true
+				}
+			},
 			"request": {
 				"method": "POST",
-				"header": []
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\" : \"Bianca\",\r\n    \"lastname\" : \"Blanco\",\r\n    \"totalprice\" : 111,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2018-01-01\",\r\n        \"checkout\" : \"2019-01-01\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/booking",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"booking"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "Update booking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.have.status(\"OK\")    \r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -123,7 +225,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"firstname\" : \"James\",\r\n    \"lastname\" : \"Brown\",\r\n    \"totalprice\" : 111,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2018-01-01\",\r\n        \"checkout\" : \"2019-01-01\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}",
+					"raw": "{\r\n    \"firstname\" : \"Bianca\",\r\n    \"lastname\" : \"Blanco\",\r\n    \"totalprice\" : 111,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2018-01-01\",\r\n        \"checkout\" : \"2019-01-01\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -131,13 +233,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/booking/1",
+					"raw": "{{url}}/booking/43",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"booking",
-						"1"
+						"43"
 					]
 				}
 			},
@@ -145,6 +247,20 @@
 		},
 		{
 			"name": "Booking - PartialUpdate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.have.status(\"OK\")    \r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -173,13 +289,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/booking/1",
+					"raw": "{{url}}/booking/43",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"booking",
-						"1"
+						"43"
 					]
 				}
 			},
@@ -187,6 +303,20 @@
 		},
 		{
 			"name": "Delete booking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){\r",
+							"    pm.response.to.have.status(201)\r",
+							"   \r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -206,29 +336,33 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/booking/1",
+					"raw": "{{url}}/booking/56",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"booking",
-						"1"
+						"56"
 					]
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "Ping",
-			"request": {
-				"method": "GET",
-				"header": []
 			},
 			"response": []
 		}
 	],
 	"auth": {
-		"type": "basic"
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "password123",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "admin",
+				"type": "string"
+			}
+		]
 	},
 	"event": [
 		{
