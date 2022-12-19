@@ -4,6 +4,13 @@
     <p>Exercício prático realizado durante o bootcamp "GFT Quality Assurance para Mulheres" na plataforma DIO.</p><br>
     <p>Objetivo: Explorar o framework RestAssured + JUnit e a geração de reports com o Allure Framework.</p>
     <br>
+</div>
+<div>
+<p>🔹 Testes no Postman:</p>
+<img height="300em" src="Postman/testes.jpg"/>
+<br><br><br>
+<p>🔹 Allure Report:</p>
+<img height="300em" src="allure-report.jpg"/>
 
 </div>
 
