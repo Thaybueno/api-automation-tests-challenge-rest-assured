@@ -92,6 +92,4 @@ public class BookingTests {
                    .statusCode(200)
                    .contentType(ContentType.JSON).and().time(lessThan(2000L));
     }
-    
-
   }
